@@ -13,3 +13,6 @@ DEFAULT_PANEL = 'announcement'
 
 # A list of scss files to be included in the compressed set of files
 ADD_SCSS_FILES = ['nec_portal/announcement/announcement.scss']
+
+# A list of js files to be included in the compressed set of files
+ADD_JS_FILES = ['nec_portal/announcement/announcement.js']

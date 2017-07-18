@@ -7,6 +7,8 @@
 {% endblock page_header %}
 
 {% block main %}
+<script src='{{ STATIC_URL }}nec_portal/announcement/announcement.js' type='text/javascript' charset='utf-8'></script>
+
 <div class="row-fluid">
   <div class="span12">
     {% include "project/announcement/_index.html" %}

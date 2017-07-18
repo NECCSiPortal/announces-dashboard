@@ -1,1 +1,12 @@
-<iframe id="announceMents" class="announceMentsScreen" src="./announcement" scrolling="no" ></iframe>
+<iframe name="announceMents" id="announceMents" class="announceMentsScreen" src="{{ announcement_logout_url|safe }}" style="height: 1px; width: 1px;"></iframe>
+
+<script type="text/javascript">
+$("#announceMents").one("load", function() {
+  anouncement.callAnnouncementFrame({
+    "target": "announceMents",
+    "action": "{{ announcement_url|safe }}",
+    "token": "{{ token|safe }}",
+    "name": "{{ name|safe }}"
+  });
+});
+</script>

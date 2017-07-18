@@ -1,10 +1,5 @@
 from django.utils.translation import ugettext_lazy as _
 
-# Announcement service server's top url
-ANNOUNCEMENT_SERVER = 'https://annoucement.example.com/'
-
-ANNOUNCEMENT_GROUP_NAME = _('Announcement')
-
 # Admin links list.
 # NOTE: If you want to add an external link,
 # please add the specified name description and url.
@@ -15,6 +10,7 @@ ADMIN_LINKS = [
     {
         'name': _('Announce'),
         'description': _('Announcement Management'),
-        'url': 'https://annoucement.example.com/',
+        'url': 'https://annoucement.example.com/?q=user'
+               '/login&destination=admin',
     },
 ]

@@ -17,7 +17,6 @@ from django.core.urlresolvers import reverse
 from openstack_dashboard.test import helpers as test
 
 INDEX_URL = reverse("horizon:project:announcement:index")
-ANNOUNCEMENT_URL = reverse("horizon:project:announcement:announcement")
 
 
 class AnnouncementTest(test.TestCase):
@@ -34,18 +33,3 @@ class AnnouncementTest(test.TestCase):
 
         self.assertEqual(res.status_code, 404)
         self.assertTemplateUsed(res, '404.html')
-
-    # A test which announcement url is existed.
-    def test_display_announcement(self):
-        res = self.client.get(ANNOUNCEMENT_URL)
-
-        # Redirect a announcement system url.
-        self.assertTrue(res.status_code == 302)
-
-    # A test which not authenticated user access announcement url.
-    def test_display_not_authenticated_announcement(self):
-        self.client.logout()
-        res = self.client.get(ANNOUNCEMENT_URL)
-
-        # Redirect a login page
-        self.assertTrue(res.status_code == 302)

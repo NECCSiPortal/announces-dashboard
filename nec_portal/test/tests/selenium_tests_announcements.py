@@ -10,6 +10,7 @@
 #  License for the specific language governing permissions and limitations
 #  under the License.
 #
+#
 
 """Test 'Announcements'.
 Please operate setting.
@@ -36,7 +37,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 
 
 # Command executor. Hub URL of Jenkins.
-SET_COMMAND_EXECUTOR = 'http://xx.xx.xx.xx:4444/wd/hub'
+SET_COMMAND_EXECUTOR = 'http://127.0.0.1:4444/wd/hub'
 # Base URL. Environment for testing.
 SET_BASE_URL = 'http://127.0.0.1/dashboard'
 # Login user.

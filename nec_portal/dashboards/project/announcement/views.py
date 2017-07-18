@@ -15,37 +15,36 @@
 """
 Views for managing Announcements.
 """
-from django.shortcuts import redirect
+from django.conf import settings
+from django.utils.translation import ugettext_lazy as _
 
-from horizon import exceptions
 from horizon import tables
 
 from nec_portal.dashboards.project.announcement \
     import tables as announcement_tables
 
-from nec_portal.local import nec_portal_settings
-
 ANNOUNCEMENT_SERVER = \
-    getattr(nec_portal_settings, 'ANNOUNCEMENT_SERVER', '')
+    getattr(settings, 'ANNOUNCEMENT_SERVER', '')
+ANNOUNCEMENT_SERVER_LOGOUT = \
+    getattr(settings, 'ANNOUNCEMENT_SERVER_LOGOUT', '')
 
 
 class IndexView(tables.DataTableView):
     table_class = announcement_tables.AnnouncementTable
     template_name = 'project/announcement/index.html'
+    page_title = _('Announcements')
+
+    def get_context_data(self, **kwargs):
+        context = super(IndexView, self).get_context_data(**kwargs)
+        request = self.request
+        project_id = request.user.project_id
+
+        context["announcement_url"] = ANNOUNCEMENT_SERVER + '/' + project_id
+        context["announcement_logout_url"] = ANNOUNCEMENT_SERVER_LOGOUT
+        context["token"] = request.user.token.id
+        context["name"] = request.user.username
+
+        return context
 
     def get_data(self):
         return []
-
-
-class DetailView(tables.DataTableView):
-    table_class = announcement_tables.AnnouncementTable
-    template_name = 'project/announcement/index.html'
-
-    def get_data(self):
-        return []
-
-    def get(self, request):
-        if not request.user.is_authenticated():
-            raise exceptions.NotAuthenticated
-
-        return redirect(ANNOUNCEMENT_SERVER + '/' + request.user.project_id)
