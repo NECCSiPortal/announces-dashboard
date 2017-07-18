@@ -1,0 +1,23 @@
+# SOME DESCRIPTIVE TITLE.
+# COPYRIGHT  (C)  NEC  CORPORATION  2016
+# This file is distributed under the same license as the PACKAGE package.
+#
+#, fuzzy
+
+#: local/nec_portal_settings.py:57
+msgid "Announcement"
+msgstr "アナウンス"
+
+#: dashboards/project/announcement/panel.py:23
+#: dashboards/project/announcement/templates/announcement/index.html:3
+#: dashboards/project/announcement/templates/announcement/index.html:6
+msgid "Announcements"
+msgstr "アナウンス"
+
+#: local/nec_portal_settings.py:102
+msgid "Announce"
+msgstr "アナウンス"
+
+#: local/nec_portal_settings.py:103
+msgid "Announcement Management"
+msgstr "アナウンス管理"
